@@ -1,0 +1,187 @@
+---
+title: "STA288 Lab 1 Assignment - Summarizing Data (WINTER 2021)"
+author: "TYPE YOUR NAME HERE (UTORid)"
+output:
+  pdf_document: default
+---
+
+## Lab 1 Assignment (both .Rmd & .pdf) - Due 11:59pm, Thurs, Feb 4, on Quercus
+## Direct link to assignment - https://q.utoronto.ca/courses/204820/assignments/548390  
+## Graded out of **29 marks**
+### *We strongly recommend you review the R code used to produce the data summaries from lecture (if you don't already have a copy in your JupyterHub account, link to rmd file on JupyterHub available on the Week 2 Quercus page) and complete both Module 1 & Module 2 pre-lab videos (available on the Week 4 Quercus page) **before** attempting this lab assignment so you will be familiar with some R code that will be useful for this assignment.*
+
+In this lab, you will summarize and interpret some data on the individuals who participated in the study described in the following paper:
+
+Mudd, PA, Crawford, JC, Turner, JS, et al. (2020) "Distinct inflammatory profiles distinguish COVID-19 from influenza with limited contributions from cytokine storm" *Science Advances* 6(50), eabe3024.
+
+The following code reads in the raw data, prepares the data set for your analysis, and initializes the packages you may need for this assignment. Be sure to run this before running the later R code so that the dataset is read in and ready for you to work with. If you do not do this, you will get error messages when you try to run chunks of R code in your rmd document.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Do not remove or edit this box. Make sure you run it (top right of this box) before trying to
+# write and run code later in the assignment.
+
+library(readr)
+library(mosaic)
+library(tidyverse)
+
+# Code to read in data set:
+Lab1data<- read_csv("STA288Lab1Data_Mudd_etal2020.csv")
+
+attach(Lab1data)
+
+```
+
+The following code reports the variables and the first several values in the data set:
+```{r}
+glimpse(Lab1data)
+```
+
+
+
+## QUESTION 1 [9 marks total]
+
+*NOTE - Remember to save a copy of this rmd file as STA288Lab1yourname.rmd before you start editing it.* 
+
+Summaries of study participants characteristics are usually presented in research publications. Consider the **ages ** of the *79 symptomatic subjects in the initial (primary) cohort who tested positive for SARS-CoV-2 RNA*  in the Mudd et al. (2020) study . 
+
+
+**a.**	*(1 mark)* Before you create any data summaries for the ages of this primary Covid cohort (or inspect any of the data summaries presented in the paper), describe what you expect the distribution of ages for the  *symptomatic subjects in the initial (primary) cohort who tested positive for SARS-CoV-2 RNA* to look like. Briefly justify your answer.
+
+ANSWER:
+
+
+
+
+**b.**	*(2 marks)* Choose the most appropriate numerical summary (or summaries) to describe this distribution and justify your choice(s).  You will compute these statistics in part *d*.
+
+ANSWER:
+
+
+
+
+**c.**	*(2 marks)* Select the most appropriate graphical summary to describe this distribution and justify your choice. You will produce this graph in part *d*.   
+
+ANSWER:
+
+
+
+**d.**	*(2 marks)* Use R to produce the summaries you chose in parts *b* and *c*. *Hint: Recall that this dataset includes 3 Groups - COVID, FLU and HEALTHY. Make sure you only include the appropriate group here!*
+```{r}
+
+
+
+```
+
+
+
+**e.**	*(2 marks)* Interpret your data summaries in the context of the Mudd et al. (2020) study.
+
+ANSWER:
+
+
+
+
+## QUESTION 2 [7 marks total]
+
+*HELPFUL RMarkdown HINT* - This *may* come in handy for this question. You may wish to include special characters like greek letters (like alpha or mu) or mathematical formulas in your writing in an R Markdown document from time to time. If you copy and paste these symbols from another program (e.g., Word), they will appear in your rmd file, but your document will *not* knit (you will receive an uninformative error and knitting will stop) so you will not be able to generate a pdf file from your rmd file. Instead, if you would like to include special characters you should use LaTeX (a typsetting language) code that, when knitted, will show the special characters in your pdf file. For instance, alpha can be typed as $\alpha$ (note: the code for this will show in the rmd file that generated this pdf document), mu can be typed as $\mu$ and xbar can be typed as $\bar{x}$. Mathematical relation symbols can be written as $=$, $<$, $>$, $\le$, $\ge$, $\neq$. A longer list of LaTeX code for typing mathematical symbols is available at [https://www.caam.rice.edu/~heinken/latex/symbols.pdf](https://www.caam.rice.edu/~heinken/latex/symbols.pdf). Here is another useful overview of RMarkdown formatting with some examples of typing equations and special characters - [http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html). This will be helpful for your Lab 2 and 3 assignments, and your project.
+
+
+A goal of the study conducted by Mudd et al. (2020) was to compare immunological responses to Covid and flu and to compare these to those of healthy individuals. An important response to consider is inflammation, which can be detected by measuring levels of serum inflammatory cytokines (e.g., $\mbox{IFN-}\gamma$,IL-6, $\mbox{TNF-}\alpha$, G-CSF, IL-17a). 
+For this assignment question, select *one* of these cytokines and consider this research question - What is the association (if any) between the **Group** and reported **inflammatory cytokine levels** (for the cytokine of your choice) for the participants in the Mudd et al. (2020) study? 
+
+
+**a.** *(1 mark)* Before you create any data summaries (or inspect any of the data summaries presented in the paper), describe how you would expect the levels of the cytokine you selected to vary by group. Briefly justify your answer.
+
+ANSWER:
+
+
+
+**b.**	*(2 marks)* Choose the most appropriate summary (or summaries) to explore this association and justify your choice(s).  
+
+ANSWER:
+
+
+
+**c.**	*(2 marks)* Use R to produce this summary (or summaries).
+```{r}
+
+
+```
+
+
+**d.**	*(2 marks)* Interpret your data summary (or summaries) in the context of the Mudd et al. (2020) study.
+
+ANSWER:
+
+
+
+
+
+
+## QUESTION 3 [7 marks total]
+
+
+Consider the question - Does hospitalization status differ for symptomatic Covid patients, symptomatic seasonal influenza patients and healthy participants in the Mudd et al. (2020) study? If so, how?
+
+**a.** *(1 mark)* Before you create any data summaries (or inspect any of the data summaries presented in the paper), describe the association (if any) you would expect to see between **Status** and **Group**.  Briefly justify your answer.
+
+ANSWER: 
+
+
+
+**b.**	*(2 marks)* Choose the most appropriate summary (or summaries) to explore this association and justify your choice(s).  
+
+ANSWER:
+
+
+
+**c.**	*(2 marks)* Use R to produce this summary (or summaries).
+```{r}
+
+
+
+```
+
+
+
+**d.**	*(2 marks)* Interpret your data summary (or summaries) in the context of the Mudd et al. (2020) study.
+
+ANSWER:
+
+
+
+
+
+## QUESTION 4 [6 marks total]
+
+**a.** *(2 marks)* What *study design* was used by Mudd et al. (2020)? Be as specific as possible and briefly justify your answer. Note: To answer this question, focus only on their primary study which included a total of 121 study participants (i.e., 79 subjects who tested positive for SARS-CoV-2 RNA + 26 symptomatic seasonal influenza subjects + 16 healthy controls).
+
+ANSWER:
+
+
+
+**b.** *(2 marks)* Is the following statement true or false? *Confounding is not likely a major concern due to the design of the Mudd et al. (2020) study.* Briefly justify your answer.
+
+ANSWER:
+
+
+
+**c.** *(2 marks)* Fig. 1 on p. 3 of Mudd et al. (2020) presents data on "circulating lymphocyte and monocyte subpopulations in select healthy controls (N = 15), acute influenza-infected subjects (N = 23), and acute SARS-CoV-2–infected subjects (N = 22)". However, there were 79 subjects who tested positive for SARS-CoV-2 RNA + 26 symptomatic seasonal influenza subjects + 16 healthy controls in the primary study. Why do you think there is a discrepancy between the sample sizes in the study and those summarized in Fig. 1? Briefly describe the implications, if any, you think this may have on the conclusions from this study.
+
+ANSWER:
+
+
+
+
+
+
+__________________________________________________________________________
+THIS IS THE END OF LAB ASSIGNMENT 1
+```{r echo = FALSE}
+# for grader use only (do not remove or edit this box)
+runif(1,0,1)
+date()
+```
+
